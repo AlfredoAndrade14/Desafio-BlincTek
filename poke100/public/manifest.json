@@ -1,0 +1,8 @@
+{
+  "short_name": "Poke100",
+  "name": "100 primeiros pokemons",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

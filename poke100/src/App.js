@@ -1,8 +1,9 @@
-import {useEffect,useState} from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css';
 
 function App() {
   const [data, setData] = useState([]);
+  const carousel = useRef(null);
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=100')
@@ -13,16 +14,28 @@ function App() {
   }
   , [])
 
+  const leftClick = (e) => {
+    e.preventDefault();
+
+    carousel.current.scrollLeft -= carousel.current.offsetWidth + 15;
+  }
+
+  const rightClick = (e) => {
+    e.preventDefault();
+    
+    carousel.current.scrollLeft += carousel.current.offsetWidth + 15;
+  }
+
   if (!data || !data.length) return null;
   
   return (
     <div className="App">
       <div className="Logo">
         <img src="icon.png" alt="logo"/>
-        <p>100 Primeiros Pokémons</p>
+        <p></p>
       </div>
 
-      <div className="carousel">
+      <div className="carousel" ref={carousel}>
         {data.map((pokemon) => {
           const {name, url} = pokemon;
           const pokeId = url.split('/')[url.split('/').length-2];
@@ -32,7 +45,7 @@ function App() {
                 <span className="Id">{pokeId}</span>
               </div>
               <div className="image">
-                <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokeId +".png"} alt="Pokémon"/>
+                <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokeId +".png"} alt={name}/>
               </div>
               <div className="name">
                 <span className="Name">{name.charAt(0).toUpperCase() + name.slice(1)}</span>
@@ -41,6 +54,11 @@ function App() {
           )
         })}
       </div> 
+
+      <div className='buttons'>
+        <button onClick ={leftClick}><img src="https://img.icons8.com/clouds/50/000000/back.png" alt="Scroll Left"/></button>
+        <button onClick ={rightClick}><img src="https://img.icons8.com/clouds/50/000000/forward.png" alt="Scroll Right"/></button>
+      </div>
     </div>
   );
 }

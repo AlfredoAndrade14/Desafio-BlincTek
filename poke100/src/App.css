@@ -9,7 +9,7 @@ body{
   min-height: 100vh;
   background-color: #282c34;
   color: rgb(0, 0, 0);
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 }
@@ -18,41 +18,73 @@ body{
   max-width: 75vw;
 }
 
+.App .Logo {
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  display: grid;
+}
+.App .Logo img {
+  width: 100%;
+  height: 100%;
+}
+
 .App .carousel{
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  background-color: #A22522;
-  border-radius: 5%;
-  width: 280px;
-  height: 400px;
+  width: 85%;
+  overflow: hidden;
+  margin-left: 7%;
+}
+
+.App .carousel ::-webkit-scrollbar {
+  display: none;
 }
 
 .App .carousel .Pokemon{
   padding: 10px;
   margin: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.App .carousel .Pokemon .image img {
-  width: 70%;
-  height: 70%;
-  object-fit: cover;
-  display: flex;
+  display: grid;
+  grid-column: auto;
+  text-align: center;
+  justify-content: center;
+  background-color: #A22522;
+  border-radius: 5%;
+  width: 255px;
+  height: 420px;
+  flex: none;
 }
 
 .App .carousel .Pokemon .Id{
-  background-color: #fff5f5;
-  border-radius: 50%;
+  background-color: #f5fff6;
+  border-radius: 100%;
   padding: 7px;
   font-size: 15px;
   font-weight: bold;
 }
 
+.App .carousel .Pokemon .image img {
+  width: 90%;
+  height: 70%;
+  background-color: rgba(221, 221, 221, 0.616);
+  border-radius: 5%;
+}
+
 .App .carousel .Pokemon .Name{
-  background-color: #fff5f5;
+  background-color: #ddd;
+  width: 10px;
   border-radius: 5%;
   padding:  15px 50px 50px;
+}
+
+.App .buttons button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.App .buttons{
+  width: 100%;
+  text-align: center;
 }

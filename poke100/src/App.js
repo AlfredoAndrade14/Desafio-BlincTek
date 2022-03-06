@@ -39,10 +39,17 @@ function App() {
         {data.map((pokemon) => {
           const {name, url} = pokemon;
           const pokeId = url.split('/')[url.split('/').length-2];
+
+          let id = pokeId;
+          for(var i = 0; i < (3 - pokeId.length); i++) {
+            id = '0' + id
+          }
+          id = '#' + id
+          
           return(
             <div className="Pokemon" key={name}>
               <div className="id">
-                <span className="Id">{pokeId}</span>
+                <span className="Id">{id}</span>
               </div>
               <div className="image">
                 <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokeId +".png"} alt={name}/>

@@ -14,16 +14,29 @@ function App() {
   }
   , [])
 
-  const leftClick = (e) => {
-    e.preventDefault();
+  const leftClick = (event) => {
+    event.preventDefault();
 
-    carousel.current.scrollLeft -= carousel.current.offsetWidth + 15;
+    carousel.current.scrollLeft -= carousel.current.offsetWidth + 14.9876;
+  }
+  
+  const startClick = (event) => {
+    event.preventDefault();
+  
+    carousel.current.scrollLeft = 0;
+    console.log(carousel.current.scrollLeftMax)
   }
 
-  const rightClick = (e) => {
-    e.preventDefault();
+  const rightClick = (event) => {
+    event.preventDefault();
     
-    carousel.current.scrollLeft += carousel.current.offsetWidth + 15;
+    carousel.current.scrollLeft += carousel.current.offsetWidth + 14.9876;
+  }
+
+  const endClick = (event) => {
+    event.preventDefault();
+  
+    carousel.current.scrollLeft = carousel.current.scrollLeftMax;
   }
 
   if (!data || !data.length) return null;
@@ -32,7 +45,10 @@ function App() {
     <div className="App">
       <div className="Logo">
         <img src="icon.png" alt="logo"/>
-        <p></p>
+      </div>
+
+      <div className='Titulo'>
+        <h1>100 Primeiros Pokémons</h1>
       </div>
 
       <div className="carousel" ref={carousel}>
@@ -45,7 +61,7 @@ function App() {
             id = '0' + id
           }
           id = '#' + id
-          
+
           return(
             <div className="Pokemon" key={name}>
               <div className="id">
@@ -63,8 +79,10 @@ function App() {
       </div> 
 
       <div className='buttons'>
+        <button onClick ={startClick}><img src="https://img.icons8.com/clouds/50/000000/left.png" alt="Scroll Start"/></button>
         <button onClick ={leftClick}><img src="https://img.icons8.com/clouds/50/000000/back.png" alt="Scroll Left"/></button>
         <button onClick ={rightClick}><img src="https://img.icons8.com/clouds/50/000000/forward.png" alt="Scroll Right"/></button>
+        <button onClick ={endClick}><img src="https://img.icons8.com/clouds/50/000000/right.png" alt="Scroll End"/></button>
       </div>
     </div>
   );

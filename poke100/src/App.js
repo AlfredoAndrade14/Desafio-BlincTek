@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <div className="Logo">
-        <img src="icon.png" alt="logo"/>
+      <img src="https://img.icons8.com/color/50/000000/pokestop-blue.png" alt="logo"/>
       </div>
 
       <div className='Titulo'>

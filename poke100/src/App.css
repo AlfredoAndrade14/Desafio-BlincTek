@@ -7,11 +7,12 @@
 body{
   width: 100%;
   min-height: 100vh;
-  background-color: #282c34;
+  background-color: #2b2d2e;
   color: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Apple Chancery, cursive;
 }
 
 .App {
@@ -25,15 +26,17 @@ body{
 }
 
 .App .Logo img {
-  width: 7%;
-  height: 7%;
+  width: 4rem;
+  height: 4rem;
+  filter: grayscale(35%);
 }
 
 .App .Titulo {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f5fff6;
+  color: #2f4266;
+  font-size: 1rem;
 }
 
 .App .carousel{
@@ -56,7 +59,7 @@ body{
   grid-column: auto;
   text-align: center;
   justify-content: center;
-  background-color: #A22522;
+  background-color: #1f2736;
   border-radius: 5%;
   width: 255px;
   height: 420px;
@@ -64,7 +67,7 @@ body{
 }
 
 .App .carousel .Pokemon .id span{
-  background-color: #f5fff6;
+  background-color: #c4c4c4;
   border-radius: 100%;
   padding: 7px;
   font-size: 15px;
@@ -79,7 +82,7 @@ body{
 }
 
 .App .carousel .Pokemon .Name{
-  background-color: #ddd;
+  background-color: #c4c4c4;
   width: 10px;
   border-radius: 5%;
   padding:  15px 50px 50px;
